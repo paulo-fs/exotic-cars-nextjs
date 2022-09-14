@@ -25,7 +25,7 @@ export default function Home({ cars }: HomeProps) {
 				{cars.map((car) => (
 					<Link href="/" key={car.id}>
 						<a>
-							<Card />
+							<Card car={car} />
 						</a>
 					</Link>
 				))}
