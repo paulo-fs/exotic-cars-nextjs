@@ -26,10 +26,10 @@
         "prettier/prettier": [
             "error"
         ],
-        "indent": [
-            "error",
-            "tab"
-        ],
+        // "indent": [
+        //     "eslint",
+        //     "tab"
+        // ],
         "linebreak-style": [
             "error",
             "unix"
