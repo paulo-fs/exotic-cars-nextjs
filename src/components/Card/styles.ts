@@ -22,8 +22,12 @@ export const HeaderContainer = styled.div`
 	justify-content: space-between;
 	align-items: flex-start;
 
+	position: absolute;
+	top: 1.5rem;
+
 	.brand-model {
 		text-align: left;
+		position: relative;
 		h2 {
 			font-size: 1.01rem;
 		}
@@ -36,11 +40,13 @@ export const HeaderContainer = styled.div`
 	}
 
 	p {
-		align-self: top;
 		font-size: 1.8rem;
 		font-weight: bold;
 		line-height: 0;
 		color: ${({ theme }) => theme.dots};
+
+		position: absolute;
+		right: 2rem;
 	}
 `;
 
@@ -56,7 +62,7 @@ export const CarImage = styled.div`
 export const FooterContainer = styled.div`
 	text-align: right;
 	position: absolute;
-	bottom: 1rem;
+	bottom: 1.55rem;
 	right: 1rem;
 
 	p {
