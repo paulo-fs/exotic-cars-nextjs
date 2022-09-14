@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import { IAllCarsResponse } from 'src/shared/interfaces';
 import {
 	CardContainer,
 	CarImage,
@@ -5,24 +7,28 @@ import {
 	HeaderContainer,
 } from './styles';
 
-export default function Card() {
+interface CardProps {
+	car: IAllCarsResponse;
+}
+
+export default function Card({ car }: CardProps) {
 	return (
 		<CardContainer>
 			<HeaderContainer>
 				<div className="brand-model">
-					<h2>Ferrari</h2>
-					<h3>Califórnia</h3>
+					<h2>{car.brand.title}</h2>
+					<h3>{car.model}</h3>
 				</div>
 				<p>...</p>
 			</HeaderContainer>
 
 			<CarImage>
-				<img src="https://firebasestorage.googleapis.com/v0/b/exotic-cars-5810f.appspot.com/o/1-ferrari.png?alt=media&token=c6275d5d-9d94-41bf-b659-8f2540eb9bec" />
+				<img src={car.small_picture} />
 			</CarImage>
 
 			<FooterContainer>
 				<p className="rent-value">
-					725
+					{car.price}
 					<span>/day</span>
 				</p>
 			</FooterContainer>

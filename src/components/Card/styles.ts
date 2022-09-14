@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.button`
 	width: 17rem;
+	height: 14rem;
 	padding: 1.4rem 1rem;
+	position: relative;
 
 	border: none;
 	border-radius: 1rem;
@@ -21,6 +23,7 @@ export const HeaderContainer = styled.div`
 	align-items: flex-start;
 
 	.brand-model {
+		text-align: left;
 		h2 {
 			font-size: 1.01rem;
 		}
@@ -52,6 +55,9 @@ export const CarImage = styled.div`
 
 export const FooterContainer = styled.div`
 	text-align: right;
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
 
 	p {
 		font-size: 1.5rem;
