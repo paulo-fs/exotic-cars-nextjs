@@ -5,6 +5,7 @@ import { IoIosArrowRoundForward } from 'react-icons/io';
 export const Container = styled.section`
 	position: relative;
 	margin-top: 2.5rem;
+	background: transparent;
 `;
 
 export const ArrowsContainer = styled.div`

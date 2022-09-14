@@ -1,4 +1,5 @@
 import Card from './Card';
+import CarNotFound from './CarNotFound';
 import InformationPageCarOptions from './InformationPageCarOptions';
 import InformationPageHeader from './InformationPageHeader';
 import InformationPageMainCar from './InformationPageMainCar';
@@ -14,4 +15,5 @@ export {
 	InformationPageMainCar,
 	InformationPageCarOptions,
 	Modal,
+	CarNotFound,
 };

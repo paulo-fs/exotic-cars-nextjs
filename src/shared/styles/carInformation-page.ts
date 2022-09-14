@@ -3,10 +3,14 @@ import { IoIosArrowRoundBack } from 'react-icons/io';
 import { IoIosArrowRoundForward } from 'react-icons/io';
 
 export const Background = styled.div`
-	width: 100%;
-	height: 100%;
-	background: transparent linear-gradient(125deg, #ffffff 0%, #d8d7d7 100%) 0%
-		0% no-repeat padding-box;
+	width: 100vw;
+	height: auto;
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	background: transparent linear-gradient(125deg, #ffffff 0%, #d8d7d7 100%);
+	background-size: auto;
 `;
 
 export const Container = styled.div`

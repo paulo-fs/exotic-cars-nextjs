@@ -1,13 +1,20 @@
+import { IAllCarsResponse } from 'src/shared/interfaces';
 import { Container } from './styles';
 
-export default function InformationPageHeader() {
+interface CarInfoProps {
+	carInfos: IAllCarsResponse;
+}
+
+export default function InformationPageHeader({ carInfos }: CarInfoProps) {
 	return (
 		<Container>
-			<img src="https://firebasestorage.googleapis.com/v0/b/exotic-cars-5810f.appspot.com/o/logo%2Fferrari-logo.png?alt=media&token=59a05b2c-4503-4006-bd6c-cea48ef8ece6" />
+			<img src={carInfos.brand.logo} />
 
 			<div>
-				<h1>Ferrari Califórnia</h1>
-				<span>$725/day</span>
+				<h1>
+					{carInfos.brand.title} {carInfos.model}
+				</h1>
+				<span>${carInfos.price}/day</span>
 			</div>
 		</Container>
 	);
