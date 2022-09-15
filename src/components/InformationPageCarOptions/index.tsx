@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Option } from 'src/shared/interfaces';
 import {
 	ArrowsContainer,
@@ -18,18 +19,52 @@ export default function InformationPageCarOptions({
 	nextCar,
 	prevCar,
 }: CarOptionsProps) {
+	const [fiNext, setFINext] = useState(false);
+	const [foNext, setFONext] = useState(false);
+	const [fiPrev, setFIPrev] = useState(false);
+	const [foPrev, setFOPrev] = useState(false);
+
+	function handleAnimations() {
+		if (foNext) {
+			setFONext((prev) => !prev);
+			setFINext((prev) => !prev);
+			nextCar();
+			return;
+		}
+		if (foPrev) {
+			setFOPrev((prev) => !prev);
+			setFIPrev((prev) => !prev);
+			prevCar();
+			return;
+		}
+		setFINext(false);
+		setFIPrev(false);
+	}
+
 	return (
 		<Container>
 			<ArrowsContainer>
-				<button className="next-prev-btn" onClick={prevCar}>
+				<button
+					className="next-prev-btn"
+					onClick={() => setFOPrev((prev) => !prev)}
+				>
 					<IconPrev />
 				</button>
-				<button className="next-prev-btn" onClick={nextCar}>
+				<button
+					className="next-prev-btn"
+					onClick={() => setFONext((prev) => !prev)}
+				>
 					<IconNext />
 				</button>
 			</ArrowsContainer>
 
-			<CardsContainer>
+			<CardsContainer
+				fiNext={fiNext}
+				foNext={foNext}
+				fiPrev={fiPrev}
+				foPrev={foPrev}
+				onAnimationEnd={handleAnimations}
+			>
 				<button>
 					<img src={options[1].picture} alt="" />
 				</button>

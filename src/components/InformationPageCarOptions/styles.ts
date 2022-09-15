@@ -1,6 +1,33 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { IoIosArrowRoundForward } from 'react-icons/io';
+
+interface CardProps {
+	fiNext: boolean;
+	foNext: boolean;
+	fiPrev: boolean;
+	foPrev: boolean;
+}
+
+const fadeOutNext = keyframes`
+	0% {left: 1rem; opacity: 1}
+	100% { left: 5rem; opacity: 0}
+`;
+
+const fadeInNext = keyframes`
+	0% {left: -5rem; opacity: 0}
+	100% { left: 1rem; opacity: 1}
+`;
+
+const fadeOutPrev = keyframes`
+	0% {left: 1rem; opacity: 1}
+	100% { left: -4rem; opacity: 0}
+`;
+
+const fadeInPrev = keyframes`
+	0% {left: 5rem; opacity: 0}
+	100% { left: 1rem; opacity: 1}
+`;
 
 export const Container = styled.section`
 	position: relative;
@@ -44,7 +71,7 @@ export const IconNext = styled(IoIosArrowRoundForward)`
 	font-size: 1.8rem;
 `;
 
-export const CardsContainer = styled.div`
+export const CardsContainer = styled.div<CardProps>`
 	height: 12rem;
 	margin: 0 8rem;
 	display: flex;
@@ -68,6 +95,30 @@ export const CardsContainer = styled.div`
 			position: absolute;
 			left: 1rem;
 			top: 15%;
+
+			animation: ${({ foNext }) =>
+				foNext &&
+				css`
+					${fadeOutNext} .3s
+				`};
+
+			animation: ${({ fiNext }) =>
+				fiNext &&
+				css`
+					${fadeInNext} .3s ease-out
+				`};
+
+			animation: ${({ foPrev }) =>
+				foPrev &&
+				css`
+					${fadeOutPrev} .3s
+				`};
+
+			animation: ${({ fiPrev }) =>
+				fiPrev &&
+				css`
+					${fadeInPrev} .3s ease-out
+				`};
 		}
 	}
 
