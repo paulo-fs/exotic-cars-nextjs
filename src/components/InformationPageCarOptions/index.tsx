@@ -66,13 +66,21 @@ export default function InformationPageCarOptions({
 				onAnimationEnd={handleAnimations}
 			>
 				<button>
-					<img src={options[1].picture} alt="" />
+					<img
+						src={options[1].picture}
+						alt=""
+						onClick={() => setFONext((prev) => !prev)}
+					/>
 				</button>
 				<button>
 					<img src={options[0].picture} alt="" />
 				</button>
 				<button>
-					<img src={options[2].picture} alt="" />
+					<img
+						src={options[2].picture}
+						alt=""
+						onClick={() => setFOPrev((prev) => !prev)}
+					/>
 				</button>
 			</CardsContainer>
 		</Container>
