@@ -24,14 +24,20 @@ export default function CarInformationPage() {
 	const [carInfos, setCarInfos] = useState<IAllCarsResponse>();
 	const [carOptions, setCarOptions] = useState<Option[]>();
 	const [notFound, setNotFound] = useState(false);
+	const [carImgAnimation, setCarImgAnimation] = useState(false);
 	const router = useRouter();
 	const id = Number(router.query.id);
+
+	function turnOffAnimation() {
+		setCarImgAnimation(false);
+	}
 
 	function nextCar() {
 		const optionList = [...carOptions!];
 		const removedOption = optionList.shift();
 		optionList.push(removedOption!);
 		setCarOptions(optionList);
+		setCarImgAnimation((prev) => !prev);
 	}
 
 	function prevCar() {
@@ -39,6 +45,7 @@ export default function CarInformationPage() {
 		const removedOption = optionList.pop();
 		optionList.unshift(removedOption!);
 		setCarOptions(optionList);
+		setCarImgAnimation((prev) => !prev);
 	}
 
 	useEffect(() => {
@@ -71,7 +78,11 @@ export default function CarInformationPage() {
 			{!isLoading && carInfos?.model && (
 				<Container>
 					<InformationPageHeader carInfos={carInfos!} />
-					<InformationPageMainCar option={carOptions![0]} />
+					<InformationPageMainCar
+						option={carOptions![0]}
+						fadeAnimation={carImgAnimation}
+						turnOffAnimation={turnOffAnimation}
+					/>
 
 					<nav>
 						<button className="back">

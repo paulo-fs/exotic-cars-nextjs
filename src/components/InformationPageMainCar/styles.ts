@@ -1,6 +1,20 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
-export const Container = styled.section`
+interface AnimationProps {
+	fadeAnimation: boolean;
+}
+
+const fadeIn = keyframes`
+	0%{opacity: 0}
+	100%{opacity: 1}
+`;
+
+const fadeOut = keyframes`
+	0%{opacity: 1}
+	100%{opacity: 0}
+`;
+
+export const Container = styled.section<AnimationProps>`
 	width: 100%;
 	position: relative;
 
@@ -28,6 +42,12 @@ export const Container = styled.section`
 		img {
 			width: 85%;
 			margin-left: 4rem;
+
+			animation: ${({ fadeAnimation }) =>
+				fadeAnimation &&
+				css`
+					${fadeIn} .5s ease
+				`};
 		}
 	}
 `;
