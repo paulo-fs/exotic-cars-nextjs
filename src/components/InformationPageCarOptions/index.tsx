@@ -9,18 +9,22 @@ import {
 
 interface CarOptionsProps {
 	options: Option[];
+	nextCar: () => void;
+	prevCar: () => void;
 }
 
 export default function InformationPageCarOptions({
 	options,
+	nextCar,
+	prevCar,
 }: CarOptionsProps) {
 	return (
 		<Container>
 			<ArrowsContainer>
-				<button className="next-prev-btn">
+				<button className="next-prev-btn" onClick={prevCar}>
 					<IconPrev />
 				</button>
-				<button className="next-prev-btn">
+				<button className="next-prev-btn" onClick={nextCar}>
 					<IconNext />
 				</button>
 			</ArrowsContainer>

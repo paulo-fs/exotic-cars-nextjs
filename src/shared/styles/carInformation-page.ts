@@ -16,6 +16,7 @@ export const Background = styled.div`
 export const Container = styled.div`
 	max-width: 1440px;
 	padding: 7rem 9rem 2rem;
+	margin: 0 auto;
 
 	nav {
 		width: 100%;

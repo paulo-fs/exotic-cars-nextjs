@@ -27,6 +27,20 @@ export default function CarInformationPage() {
 	const router = useRouter();
 	const id = Number(router.query.id);
 
+	function nextCar() {
+		const optionList = [...carOptions!];
+		const removedOption = optionList.shift();
+		optionList.push(removedOption!);
+		setCarOptions(optionList);
+	}
+
+	function prevCar() {
+		const optionList = [...carOptions!];
+		const removedOption = optionList.pop();
+		optionList.unshift(removedOption!);
+		setCarOptions(optionList);
+	}
+
 	useEffect(() => {
 		setIsLoading(true);
 		getCar(id)
@@ -74,7 +88,11 @@ export default function CarInformationPage() {
 						</button>
 					</nav>
 
-					<InformationPageCarOptions options={carOptions!} />
+					<InformationPageCarOptions
+						options={carOptions!}
+						nextCar={nextCar}
+						prevCar={prevCar}
+					/>
 				</Container>
 			)}
 		</Background>
