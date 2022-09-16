@@ -15,6 +15,7 @@ export const Background = styled.div`
 
 export const Container = styled.div`
 	max-width: 1440px;
+	height: 100vh;
 	padding: 7rem 9rem 2rem;
 	margin: 0 auto;
 
@@ -61,6 +62,33 @@ export const Container = styled.div`
 		&:hover {
 			background-color: ${({ theme }) => theme.textSecondary};
 			border: 1px solid ${({ theme }) => theme.textSecondary};
+		}
+	}
+
+	@media (max-width: 1200px) {
+		padding: 6rem 4rem 2rem;
+	}
+
+	@media (max-width: 1024px) {
+		padding: 5.5rem 2rem 2rem;
+	}
+
+	@media (max-width: 768px) {
+		padding: 5rem 2rem 2rem;
+
+		nav {
+			gap: 2rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		padding: 6rem 2rem 4rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		nav {
+			margin-top: 2rem;
 		}
 	}
 `;

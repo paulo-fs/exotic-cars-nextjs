@@ -33,6 +33,14 @@ export const Container = styled.section`
 	position: relative;
 	margin-top: 2.5rem;
 	background: transparent;
+
+	@media (max-width: 980px) {
+		margin-top: 4rem;
+	}
+
+	@media (max-width: 480px) {
+		margin-top: 20rem;
+	}
 `;
 
 export const ArrowsContainer = styled.div`
@@ -58,6 +66,10 @@ export const ArrowsContainer = styled.div`
 		&:hover {
 			background-color: ${({ theme }) => theme.textSecondary};
 		}
+	}
+
+	@media (max-width: 480px) {
+		top: -100%;
 	}
 `;
 
@@ -135,6 +147,103 @@ export const CardsContainer = styled.div<CardProps>`
 		img {
 			width: 120%;
 			top: 1.8rem;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		height: 10rem;
+		margin: 0 6rem;
+
+		button {
+			max-width: 11rem;
+			height: 8rem;
+			min-width: 10rem;
+			img {
+				width: 110%;
+				position: absolute;
+				left: 1rem;
+				top: 25%;
+			}
+		}
+
+		button:nth-child(2) {
+			max-width: 14rem;
+			height: 10rem;
+			img {
+				width: 110%;
+				top: 20%;
+			}
+		}
+	}
+
+	@media (max-width: 1024px) {
+	}
+
+	@media (max-width: 768px) {
+		flex: 1;
+		height: 22rem;
+		margin: 0 8rem;
+		position: relative;
+
+		button {
+			max-width: 14rem;
+			height: 8rem;
+			min-width: 10rem;
+			img {
+				width: 110%;
+				position: absolute;
+				left: 1rem;
+				top: 25%;
+			}
+		}
+
+		button:nth-child(2) {
+			width: 18rem;
+			min-width: 16rem;
+			height: 12rem;
+
+			position: absolute;
+			top: 0rem;
+			right: calc(50% - 25%);
+
+			img {
+				width: 110%;
+				top: 20%;
+			}
+		}
+	}
+
+	@media (max-width: 480px) {
+		flex: 1;
+		height: 22rem;
+		margin: -16rem 3rem 0;
+		position: relative;
+
+		button {
+			max-width: 45%;
+			height: 8rem;
+			min-width: 10rem;
+			img {
+				width: 110%;
+				position: absolute;
+				left: 0.5rem;
+				top: 25%;
+			}
+		}
+
+		button:nth-child(2) {
+			width: 18rem;
+			min-width: 16rem;
+			height: 12rem;
+
+			position: absolute;
+			top: 0rem;
+			right: calc(50% - 30%);
+
+			img {
+				width: 120%;
+				top: 10%;
+			}
 		}
 	}
 `;

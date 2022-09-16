@@ -30,4 +30,38 @@ export const Container = styled.div<Props>`
 			}
 		}
 	}
+
+	@media (max-width: 768px) {
+		img {
+			height: 6rem;
+		}
+
+		div {
+			h1 {
+				font-size: 2.8rem;
+			}
+			span {
+				font-size: 1.7rem;
+			}
+		}
+	}
+
+	@media (max-width: 480px) {
+		gap: 1rem;
+		margin-bottom: 3rem;
+
+		img {
+			height: 6rem;
+		}
+
+		div {
+			h1 {
+				font-size: 2.2rem;
+				margin-bottom: 1rem;
+			}
+			span {
+				font-size: 1.5rem;
+			}
+		}
+	}
 `;

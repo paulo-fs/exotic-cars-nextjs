@@ -48,4 +48,34 @@ export const Container = styled.section<AnimationProps>`
 				`};
 		}
 	}
+
+	@media (max-width: 768px) {
+		.option-header {
+			h3 {
+				font-size: 1.7rem;
+			}
+			span {
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+	@media (max-width: 480px) {
+		.option-header {
+			h3 {
+				font-size: 2.5rem;
+			}
+			span {
+				font-size: 4rem;
+			}
+		}
+
+		.image-container {
+			img {
+				width: 100%;
+				margin-left: 0;
+				margin-top: 4rem;
+			}
+		}
+	}
 `;
