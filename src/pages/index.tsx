@@ -1,9 +1,12 @@
 import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+
 import { Card } from 'src/components';
+
 import { IAllCarsResponse } from 'src/shared/interfaces';
 import { getAllCars } from 'src/shared/services';
+
 import { BackgroundMain, Content } from 'src/shared/styles/main-page';
 
 interface HomeProps {

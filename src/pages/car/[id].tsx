@@ -10,6 +10,7 @@ import {
 	InformationPageCarOptions,
 	InformationPageHeader,
 	InformationPageMainCar,
+	LoadingComponent,
 } from 'src/components';
 
 import {
@@ -66,7 +67,7 @@ export default function CarInformationPage() {
 	}, []);
 
 	if (isLoading) {
-		return <p>Loading...</p>;
+		return <LoadingComponent />;
 	}
 
 	if (notFound) {

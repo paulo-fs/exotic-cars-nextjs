@@ -1,4 +1,3 @@
-import { SetStateAction } from 'react';
 import { Option } from 'src/shared/interfaces';
 import { Container } from './styles';
 
