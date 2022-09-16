@@ -1,9 +1,18 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-	width: 100%;
-	height: 100%;
+interface Props {
+	complete: boolean;
+}
 
-	display: grid;
+export const Container = styled.div<Props>`
+	width: 100vw;
+	height: 100vh;
+	background: ${({ theme }) => theme.white};
+	opacity: 0.8;
+
+	display: ${({ complete }) => (complete ? 'none' : 'grid')};
 	place-content: center;
+
+	position: absolute;
+	z-index: 4;
 `;

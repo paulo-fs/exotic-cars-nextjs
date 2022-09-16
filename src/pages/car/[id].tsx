@@ -21,13 +21,13 @@ import {
 } from 'src/shared/styles/carInformation-page';
 
 export default function CarInformationPage() {
-	const [isLoading, setIsLoading] = useState(false);
 	const [carInfos, setCarInfos] = useState<IAllCarsResponse>();
 	const [carOptions, setCarOptions] = useState<Option[]>();
 	const [notFound, setNotFound] = useState(false);
 	const [carImgAnimation, setCarImgAnimation] = useState(false);
 	const router = useRouter();
-	const id = Number(router.query.id);
+	const { isReady } = router;
+	const carId = Number(router.query.id);
 
 	function turnOffAnimation() {
 		setCarImgAnimation(false);
@@ -50,25 +50,18 @@ export default function CarInformationPage() {
 	}
 
 	useEffect(() => {
-		setIsLoading(true);
-		getCar(id)
-			.then((response) => {
-				if (response) {
-					setCarInfos(response);
-					setCarOptions(response.options);
-					return;
-				}
-				setNotFound(true);
-			})
-			.catch((error) => {
+		async function getCarInfos() {
+			const response = await getCar(carId);
+			setCarInfos(response);
+			setCarOptions(response.options);
+		}
+		if (isReady) {
+			getCarInfos().catch((error) => {
 				console.log(error);
-			})
-			.finally(() => setIsLoading(false));
-	}, []);
-
-	if (isLoading) {
-		return <LoadingComponent />;
-	}
+				setNotFound(true);
+			});
+		}
+	}, [isReady]);
 
 	if (notFound) {
 		return <CarNotFound />;
@@ -76,7 +69,8 @@ export default function CarInformationPage() {
 
 	return (
 		<Background>
-			{!isLoading && carInfos?.model && (
+			<LoadingComponent />
+			{carInfos?.model && (
 				<Container>
 					<InformationPageHeader carInfos={carInfos!} />
 					<InformationPageMainCar
