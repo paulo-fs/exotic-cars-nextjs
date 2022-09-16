@@ -1,5 +1,7 @@
 import Card from './Card';
 import CarNotFound from './CarNotFound';
+import SignInForm from './Forms/SignIn';
+import SignupForm from './Forms/Signup';
 import InformationPageCarOptions from './InformationPageCarOptions';
 import InformationPageHeader from './InformationPageHeader';
 import InformationPageMainCar from './InformationPageMainCar';
@@ -18,4 +20,6 @@ export {
 	Modal,
 	CarNotFound,
 	LoadingComponent,
+	SignupForm,
+	SignInForm,
 };

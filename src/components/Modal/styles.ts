@@ -25,7 +25,7 @@ export const Overlay = styled.div`
 `;
 
 export const ModalElement = styled.div`
-	width: 28rem;
+	width: 24rem;
 	padding: 2rem;
 	border: none;
 	border-radius: 8px;

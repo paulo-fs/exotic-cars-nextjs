@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Context } from 'src/shared/context';
+import { SignupForm, SignInForm } from '../index';
 
 import { Container, IconClose, ModalElement, Overlay } from './styles';
 
@@ -10,14 +11,15 @@ export default function Modal() {
 		<Container>
 			<ModalElement>
 				<div className="header">
-					<h1>Modal {modalContent}</h1>
+					<h1>{modalContent === 'SIGNUP' ? 'Sign up' : 'Sign in'}</h1>
 					<button className="close" onClick={handleOpenModal}>
 						<IconClose />
 					</button>
 				</div>
 
 				<div className="content">
-					<p>This feature is under construction</p>
+					{modalContent === 'SIGNUP' && <SignupForm />}
+					{modalContent === 'SIGNIN' && <SignInForm />}
 				</div>
 			</ModalElement>
 			<Overlay onClick={handleOpenModal} />
