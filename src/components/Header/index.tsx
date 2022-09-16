@@ -1,3 +1,5 @@
+import { FormEvent } from 'react';
+import { useToast } from 'src/shared/hooks';
 import SignButton from '../SignButton';
 import {
 	Container,
@@ -13,13 +15,18 @@ import {
 } from './styles';
 
 export default function Header() {
+	function handleSubmit(event: FormEvent) {
+		event.preventDefault();
+		useToast('warning', 'Feature under construction!');
+	}
+
 	return (
 		<HeaderContainer>
 			<Container>
 				<Logo>
 					Exotic<span>Cars</span>
 				</Logo>
-				<FormContainer action="">
+				<FormContainer action="" onSubmit={handleSubmit}>
 					<InputContainer>
 						<MapIcon />
 						<InputSearch type="search" placeholder="Search for your car" />
@@ -33,7 +40,7 @@ export default function Header() {
 						<InputDate type="date" />
 					</InputContainer>
 
-					<SearchButton>
+					<SearchButton type="submit">
 						<SearchIcon />
 					</SearchButton>
 				</FormContainer>

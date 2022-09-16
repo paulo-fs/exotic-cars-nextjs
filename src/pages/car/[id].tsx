@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useToast } from 'src/shared/hooks';
 
 import { getCar } from 'src/shared/services';
 import { IAllCarsResponse, Option } from 'src/shared/interfaces';
@@ -88,7 +89,10 @@ export default function CarInformationPage() {
 								</a>
 							</Link>
 						</button>
-						<button className="book">
+						<button
+							className="book"
+							onClick={() => useToast('warning', 'Feature under construction!')}
+						>
 							Book now
 							<IconRightArrow />
 						</button>
