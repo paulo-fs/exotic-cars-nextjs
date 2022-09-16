@@ -13,7 +13,11 @@ export default function InformationPageMainCar({
 	turnOffAnimation,
 }: MainCarProps) {
 	return (
-		<Container fadeAnimation={fadeAnimation} onAnimationEnd={turnOffAnimation}>
+		<Container
+			fadeAnimation={fadeAnimation}
+			onAnimationEnd={turnOffAnimation}
+			available={option.avaliable}
+		>
 			<div className="option-header">
 				<span>0{option.option}</span>
 				<h3>{option.color}</h3>

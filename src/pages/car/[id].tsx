@@ -73,7 +73,10 @@ export default function CarInformationPage() {
 			<LoadingComponent />
 			{carInfos?.model && (
 				<Container>
-					<InformationPageHeader carInfos={carInfos!} />
+					<InformationPageHeader
+						carInfos={carInfos!}
+						available={carOptions![0].avaliable}
+					/>
 					<InformationPageMainCar
 						option={carOptions![0]}
 						fadeAnimation={carImgAnimation}

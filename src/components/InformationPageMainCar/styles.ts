@@ -2,16 +2,12 @@ import styled, { keyframes, css } from 'styled-components';
 
 interface AnimationProps {
 	fadeAnimation: boolean;
+	available: boolean;
 }
 
 const fadeIn = keyframes`
 	0%{opacity: 0}
 	100%{opacity: 1}
-`;
-
-const fadeOut = keyframes`
-	0%{opacity: 1}
-	100%{opacity: 0}
 `;
 
 export const Container = styled.section<AnimationProps>`
@@ -38,6 +34,8 @@ export const Container = styled.section<AnimationProps>`
 		width: 100%;
 		display: grid;
 		place-content: center;
+
+		opacity: ${({ available }) => (available ? 1 : 0.6)};
 
 		img {
 			width: 85%;
