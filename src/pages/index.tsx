@@ -2,7 +2,7 @@ import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { Card } from 'src/components';
+import { Card, FooterButton } from 'src/components';
 
 import { IAllCarsResponse } from 'src/shared/interfaces';
 import { getAllCars } from 'src/shared/services';
@@ -14,8 +14,6 @@ interface HomeProps {
 }
 
 export default function Home({ cars }: HomeProps) {
-	// console.log(cars);
-
 	return (
 		<BackgroundMain>
 			<Head>
@@ -33,6 +31,8 @@ export default function Home({ cars }: HomeProps) {
 					</Link>
 				))}
 			</Content>
+
+			<FooterButton />
 		</BackgroundMain>
 	);
 }
