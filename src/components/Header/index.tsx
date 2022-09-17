@@ -1,4 +1,5 @@
-import { FormEvent } from 'react';
+import Link from 'next/link';
+import { FormEvent, useState } from 'react';
 import { useToast } from 'src/shared/hooks';
 import SignButton from '../SignButton';
 import {
@@ -12,9 +13,19 @@ import {
 	MapIcon,
 	SearchButton,
 	SearchIcon,
+	HamburgerButton,
+	MenuIcon,
+	CloseMenuButton,
+	IconClose,
 } from './styles';
 
 export default function Header() {
+	const [showMenu, setShowMenu] = useState(false);
+
+	function handleShowMenu() {
+		setShowMenu((prevState) => !prevState);
+	}
+
 	function handleSubmit(event: FormEvent) {
 		event.preventDefault();
 		useToast('warning', 'Feature under construction!');
@@ -22,9 +33,13 @@ export default function Header() {
 
 	return (
 		<HeaderContainer>
-			<Container>
+			<Container showMenu={showMenu}>
 				<Logo>
-					Exotic<span>Cars</span>
+					<Link href="/">
+						<a>
+							Exotic<span>Cars</span>
+						</a>
+					</Link>
 				</Logo>
 				<FormContainer action="" onSubmit={handleSubmit}>
 					<InputContainer>
@@ -44,9 +59,18 @@ export default function Header() {
 						<SearchIcon />
 					</SearchButton>
 				</FormContainer>
+
+				<HamburgerButton onClick={handleShowMenu}>
+					<MenuIcon />
+				</HamburgerButton>
+
 				<nav>
 					<SignButton type="signup" />
 					<SignButton type="signin" />
+
+					<CloseMenuButton showMenu={showMenu} onClick={handleShowMenu}>
+						<IconClose />
+					</CloseMenuButton>
 				</nav>
 			</Container>
 		</HeaderContainer>

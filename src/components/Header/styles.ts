@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { FaMapMarkerAlt, FaSearch } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaSearch, FaBars } from 'react-icons/fa';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
+
+interface Props {
+	showMenu: boolean;
+}
 
 export const HeaderContainer = styled.header`
 	width: 100%;
@@ -8,7 +13,7 @@ export const HeaderContainer = styled.header`
 	background-color: ${({ theme }) => theme.white};
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<Props>`
 	max-width: 1440px;
 	padding: 1rem 9rem;
 	margin: 0 auto;
@@ -21,6 +26,72 @@ export const Container = styled.div`
 		button + button {
 			margin-left: 1.5rem;
 		}
+	}
+
+	@media (max-width: 1200px) {
+		padding: 1rem 4rem;
+	}
+
+	@media (max-width: 1024px) {
+		padding: 1rem 2rem;
+	}
+
+	@media (max-width: 768px) {
+		padding: 0.7rem 2rem;
+
+		nav {
+			display: ${({ showMenu }) => (showMenu ? 'flex' : 'none')};
+			flex-direction: column;
+			align-items: center;
+			gap: 5rem;
+
+			width: 100%;
+			height: 100%;
+			padding: 16rem 0;
+
+			opacity: 0.97;
+
+			background-color: ${({ theme }) => theme.white};
+
+			position: fixed;
+			top: 0;
+
+			button {
+				font-size: 2rem;
+				padding: 1rem 3rem;
+			}
+
+			button + button {
+				margin-left: 0;
+			}
+		}
+
+		form {
+			padding: 0.5rem 0.5rem;
+		}
+	}
+`;
+
+export const CloseMenuButton = styled.button<Props>`
+	display: none;
+	border: none;
+	background-color: transparent;
+
+	position: absolute;
+	top: 2rem;
+	right: 6rem;
+
+	@media (max-width: 768px) {
+		display: ${({ showMenu }) => (showMenu ? 'block' : 'none')};
+	}
+`;
+
+export const IconClose = styled(IoIosCloseCircleOutline)`
+	font-size: 3rem;
+	fill: ${({ theme }) => theme.textSecondary};
+
+	&:hover {
+		fill: ${({ theme }) => theme.primary};
 	}
 `;
 
@@ -41,6 +112,10 @@ export const FormContainer = styled.form`
 	background-color: ${(props) => props.theme.inputBackground};
 	display: flex;
 	align-items: center;
+
+	@media (max-width: 420px) {
+		display: none;
+	}
 `;
 
 export const MapIcon = styled(FaMapMarkerAlt)`
@@ -71,8 +146,11 @@ export const InputDate = styled(InputBase)`
 	flex-direction: row-reverse;
 	gap: 0.4rem;
 
+	@media (max-width: 1024px) {
+		display: none;
+	}
+
 	&::-webkit-calendar-picker-indicator {
-		/* position: absolute; */
 		font-size: 0.95rem;
 		opacity: 0.35;
 	}
@@ -101,5 +179,26 @@ export const SearchButton = styled.button`
 	transition: 0.2s;
 	&:hover {
 		background-color: ${(props) => props.theme.inputBackground};
+	}
+`;
+
+export const HamburgerButton = styled.button`
+	border: none;
+	background-color: transparent;
+`;
+
+export const MenuIcon = styled(FaBars)`
+	display: none;
+
+	@media (max-width: 768px) {
+		display: block;
+		fill: ${(props) => props.theme.primary};
+		font-size: 1.2rem;
+		line-height: 0;
+
+		transition: 0.2s;
+		&:hover {
+			fill: ${({ theme }) => theme.textSecondary};
+		}
 	}
 `;

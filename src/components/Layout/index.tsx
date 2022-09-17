@@ -3,8 +3,7 @@ import { ToastContainer } from 'react-toastify';
 
 import { Context } from 'src/shared/context';
 
-import Header from '../Header';
-import Modal from '../Modal';
+import { Header, Modal } from '../index';
 
 import { GlobalStyle } from 'src/shared/styles/global';
 import { Container } from './styles';

@@ -28,6 +28,6 @@ export const Content = styled.div`
 	}
 
 	@media (max-width: 768px) {
-		padding: 5rem 2rem 2rem;
+		padding: 5rem 2rem 4rem;
 	}
 `;
